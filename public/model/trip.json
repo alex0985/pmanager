@@ -1,0 +1,20 @@
+{
+    "trip": {
+        "last_trip": "",
+        "start_date": "",
+        "end_date": "",
+        "km_traveled": "",
+        "km_end":"",
+        "start_time": "",
+        "end_time": "",
+        "reason": "",
+        "bpid": "",
+        "text": ""
+    },
+    "autoCalc":{
+        "KmEnd": true,
+        "KmTraveled":true
+    },
+    "reason": [],
+    "bp": []
+}

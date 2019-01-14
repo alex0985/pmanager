@@ -1,0 +1,41 @@
+<mvc:View controllerName="bApp.controller.Launchpad" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:f="sap.ui.layout.form">
+    <semantic:DetailPage title="App Launcher">
+        <semantic:customHeaderContent>
+            <Button text="Logout" press="onPressLogout"></Button>
+        </semantic:customHeaderContent>
+        <semantic:content>
+            <Panel id="idPanelTD" expandable="true" visible="false" expanded="true" width="auto" class="sapUiResponsiveMargin" headerText="Bewegungsdaten">
+                <FlexBox id="idBoxTransactionalData" justifyContent="Center" wrap="Wrap">
+                    <items>
+                        <GenericTile sizeBehavior="Small" id="td1" visible="false" header="dummy1" press="onPress" class="sapUiTinyMarginTop sapUiTinyMarginBegin" mode="ContentMode"></GenericTile>
+                        <GenericTile sizeBehavior="Small" id="td2" visible="false" header="dummy2" press="onPress" class="sapUiTinyMarginTop sapUiTinyMarginBegin" mode="ContentMode"></GenericTile>
+                        <GenericTile sizeBehavior="Small" id="td3" visible="false" header="dummy3" press="onPress" class="sapUiTinyMarginTop sapUiTinyMarginBegin" mode="ContentMode"></GenericTile>
+                        <GenericTile sizeBehavior="Small" id="td4" visible="false" header="dummy4" press="onPress" class="sapUiTinyMarginTop sapUiTinyMarginBegin" mode="ContentMode"></GenericTile>
+                        <GenericTile sizeBehavior="Small" id="td5" visible="false" header="dummy5" press="onPress" class="sapUiTinyMarginTop sapUiTinyMarginBegin" mode="ContentMode"></GenericTile>
+                        <GenericTile sizeBehavior="Small" id="td6" visible="false" header="dummy6" press="onPress" class="sapUiTinyMarginTop sapUiTinyMarginBegin" mode="ContentMode"></GenericTile>
+                        <GenericTile sizeBehavior="Small" id="td7" visible="false" header="dummy6" press="onPress" class="sapUiTinyMarginTop sapUiTinyMarginBegin" mode="ContentMode"></GenericTile>
+                        <GenericTile sizeBehavior="Small" id="td8" visible="false" header="dummy6" press="onPress" class="sapUiTinyMarginTop sapUiTinyMarginBegin" mode="ContentMode"></GenericTile>
+                        <GenericTile sizeBehavior="Small" id="td9" visible="false" header="dummy6" press="onPress" class="sapUiTinyMarginTop sapUiTinyMarginBegin" mode="ContentMode"></GenericTile>
+                        <GenericTile sizeBehavior="Small" id="td0" visible="false" header="dummy6" press="onPress" class="sapUiTinyMarginTop sapUiTinyMarginBegin" mode="ContentMode"></GenericTile>
+                    </items>
+                </FlexBox>
+            </Panel>
+            <Panel id="idPanelMD" expandable="true" visible="false" expanded="true" width="auto" class="sapUiResponsiveMargin" headerText="Stammdaten">
+                <FlexBox id="idBoxMasterData" justifyContent="Center" wrap="Wrap">
+                    <items>
+                        <GenericTile sizeBehavior="Small" id="md1" visible="false" header="dummy1" press="onPress" class="sapUiTinyMarginTop sapUiTinyMarginBegin" mode="ContentMode"></GenericTile>
+                        <GenericTile sizeBehavior="Small" id="md2" visible="false" header="dummy2" press="onPress" class="sapUiTinyMarginTop sapUiTinyMarginBegin" mode="ContentMode"></GenericTile>
+                        <GenericTile sizeBehavior="Small" id="md3" visible="false" header="dummy3" press="onPress" class="sapUiTinyMarginTop sapUiTinyMarginBegin" mode="ContentMode"></GenericTile>
+                        <GenericTile sizeBehavior="Small" id="md4" visible="false" header="dummy4" press="onPress" class="sapUiTinyMarginTop sapUiTinyMarginBegin" mode="ContentMode"></GenericTile>
+                        <GenericTile sizeBehavior="Small" id="md5" visible="false" header="dummy5" press="onPress" class="sapUiTinyMarginTop sapUiTinyMarginBegin" mode="ContentMode"></GenericTile>
+                        <GenericTile sizeBehavior="Small" id="md6" visible="false" header="dummy6" press="onPress" class="sapUiTinyMarginTop sapUiTinyMarginBegin" mode="ContentMode"></GenericTile>
+                        <GenericTile sizeBehavior="Small" id="md7" visible="false" header="dummy6" press="onPress" class="sapUiTinyMarginTop sapUiTinyMarginBegin" mode="ContentMode"></GenericTile>
+                        <GenericTile sizeBehavior="Small" id="md8" visible="false" header="dummy6" press="onPress" class="sapUiTinyMarginTop sapUiTinyMarginBegin" mode="ContentMode"></GenericTile>
+                        <GenericTile sizeBehavior="Small" id="md9" visible="false" header="dummy6" press="onPress" class="sapUiTinyMarginTop sapUiTinyMarginBegin" mode="ContentMode"></GenericTile>
+                        <GenericTile sizeBehavior="Small" id="md0" visible="false" header="dummy6" press="onPress" class="sapUiTinyMarginTop sapUiTinyMarginBegin" mode="ContentMode"></GenericTile>
+                    </items>
+                </FlexBox>
+            </Panel>
+        </semantic:content>
+    </semantic:DetailPage>
+</mvc:View>

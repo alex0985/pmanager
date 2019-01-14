@@ -1,0 +1,131 @@
+{
+	"_version": "1.4.0",
+	"sap.app": {
+		"id": "bApp",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"dataSources": {}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "sap-icon://task",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_bluecrystal"
+		]
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "bApp.view.App",
+			"type": "XML",
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.52.0",
+			"libs": {
+				"sap.ui.core": {
+					"minVersion": "1.52.0"
+				},
+				"sap.m": {
+					"minVersion": "1.52.0"
+				}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "bApp.i18n.i18n"
+				}
+			},
+			"menu": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "model/menu.json",
+				"preload": true
+			},
+			"trip": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "model/trip.json",
+				"preload": true
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "bApp.view",
+				"controlId": "app",
+				"controlAggregation": "detailPages",
+				"bypassed": {
+					"target": [
+						"notFound"
+					]
+				},
+				"async": true
+			},
+			"routes": [{
+					"pattern": "",
+					"name": "menu",
+					"target": [
+						"menu","launchpad"
+					]
+				},{
+					"pattern": "LogBook",
+					"name": "logbook",
+					"target": ["logbook"]
+				}
+			],
+			"targets": {
+				"menu":{
+					"viewName": "AppMenu",
+					"viewLevel": 1,
+					"viewId": "menu",
+					"controlAggregation": "masterPages"
+				},
+				"launchpad": {
+					"viewName": "Launchpad",
+					"viewId": "launchpad"
+				},
+				"logbook": {
+					"viewName": "LogBook",
+					"viewId": "logbook"
+				},
+				"detailObjectNotFound": {
+					"viewName": "DetailObjectNotFound",
+					"viewId": "detailObjectNotFound"
+				},
+				"detailNoObjectsAvailable": {
+					"viewName": "DetailNoObjectsAvailable",
+					"viewId": "detailNoObjectsAvailable"
+				},
+				"notFound": {
+					"viewName": "NotFound",
+					"viewId": "notFound"
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script 
+            id="sap-ui-bootstrap"
+            src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js" 
+            data-sap-ui-libs="sap.m, sap.ui.layout"
+            data-sap-ui-theme="sap_bluecrystal"
+			data-sap-ui-bindingsyntax="complex"
+			data-sap-ui-resourceroots='{
+				"bApp": "./"
+			   }'> 
+        </script>
+        
+		<script>
+			var oCompContainer = new sap.ui.core.ComponentContainer({
+				name: 'bApp'
+			});
+		    oCompContainer.placeAt("content");
+		</script>
+    </head>
+	<body class="sapUiBody" role="application">
+		<div id="content"></div>
+	</body>
+</html>
