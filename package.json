@@ -1,13 +1,13 @@
 {
-  "name": "awba",
+  "name": "pmanager",
   "version": "1.0.0",
-  "description": "Alexander Weber || Business Apps",
+  "description": "Product Manager || App",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "awba"
+    "pmanager"
   ],
   "author": "Alexander Weber",
   "license": "ISC",
@@ -26,5 +26,14 @@
     "mysql": "^2.16.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alex0985/pmanager.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alex0985/pmanager/issues"
+  },
+  "homepage": "https://github.com/alex0985/pmanager#readme"
 }
