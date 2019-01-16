@@ -5,29 +5,25 @@
             <f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="5" emptySpanXL="5">
                 <Label text="Letzter KM-Stand"></Label>
                 <Input id="idLastKM" type="Number" value="{/trip/last_trip}" submit="onKmInput"></Input>
-                <Label text="Ende Datum"></Label>
+                <Label text="Datum"></Label>
                 <DatePicker id="endd" value="{path:'/trip/end_date', type: 'sap.ui.model.type.DateTime',formatOptions: { format : 'yMMMd'}}" class="sapUiSmallMarginBottom" />
-                <Label text="Gefahrene KM"></Label>
-                <Input type="Number" id="idKmTraveled" value="{/trip/km_traveled}" submit="onKmInput"></Input>
-                <Label text="Akt. KM Stand"></Label>
-                <Input type="Number" id="idKmEnd" value="{/trip/km_end}" submit="onKmInput"></Input>
                 <Label text="Ziel"></Label>
                 <Select id="idBPSelect" showSecondaryValues="true" change="onSelectBP" items="{
                 	path: '/',
 					sorter: { path: 'bpid' } }">
-                    <core:ListItem key="{bpid}" text="{city} {country}" additionalText="{name}" />
+                    <core:ListItem key="{bpid}" text="{name}" additionalText="{city}" />
                 </Select>
-                <Label text="Grund"></Label>
-                <SegmentedButton id="idReasonButtons" selectionChange="onSelectReason">
-                    <items></items>
-                </SegmentedButton>
+                <Label text="Gefahrene KM"></Label>
+                <Input type="Number" id="idKmTraveled" value="{/trip/km_traveled}" submit="onKmInput"></Input>
+                <Label text="Akt. KM Stand"></Label>
+                <Input type="Number" id="idKmEnd" value="{/trip/km_end}" submit="onKmInput"></Input>
+                <Label text="Bemerkung"></Label>
+                <TextArea value="{/trip/last_trip/text}" rows="4" />
             </f:SimpleForm>
             <Panel expandable="true" expanded="false" headerText="Weitere Angaben">
                 <f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="5" emptySpanXL="5">
                     <Label text="Datum Start"></Label>
                     <DatePicker id="startd" value="{path:'/trip/start_date', type: 'sap.ui.model.type.DateTime',formatOptions: { format : 'yMMMd'}}" class="sapUiSmallMarginBottom" />
-                    <Label text="Bemerkung"></Label>
-                    <TextArea value="{/trip/last_trip/text}" rows="4" />
                 </f:SimpleForm>
             </Panel>
         </semantic:content>

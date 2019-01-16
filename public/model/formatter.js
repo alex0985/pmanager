@@ -15,8 +15,23 @@ sap.ui.define([
                 return "";
             }
             return parseFloat(sValue).toFixed(2);
-        }
+        },
+        formatDate: function(date) {
+            if(date){
+                var oDate = new Date(date);
 
+                var dd      = oDate.getDate();
+                var mm      = oDate.getMonth() + 1; //January is 0!
+                var yyyy    = oDate.getFullYear();
+                if (dd < 10) {
+                    dd = '0' + dd;
+                }
+                if (mm < 10) {
+                    mm = '0' + mm;
+                }
+                return dd + '.' + mm + '.' + yyyy;
+            }
+        }
     };
 
 }

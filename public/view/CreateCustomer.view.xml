@@ -1,0 +1,30 @@
+<mvc:View controllerName="bApp.controller.CreateCustomer" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:semantic="sap.m.semantic" xmlns:f="sap.ui.layout.form">
+    <semantic:DetailPage title="Partner pflegen" showNavButton="true" navButtonPress="onNavBack">
+        <semantic:customHeaderContent></semantic:customHeaderContent>
+        <semantic:content>
+            <f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="5" emptySpanXL="5">
+                <Label text="ID"></Label>
+                <Input id="idBPId" type="Number" value="{/bpid}" submit="onSubmit" showValueHelp="true" valueHelpRequest="handleValueHelp"></Input>
+                <Label text="Name"></Label>
+                <Input id="idInName" value="{/name}"></Input>
+                <Label text="Straße"></Label>
+                <Input id="idInStreet" value="{/street}"></Input>
+                <Label text="Stadt"></Label>
+                <Label text="PLZ/Stadt"></Label>
+                <Input id="idInPostCode" value="{/postcode}"></Input>
+                <Input id="idInCity" value="{/city}"></Input>
+                <Label text="UStId"></Label>
+                <Input id="idInUStId" value="{/ustid}"></Input>
+                <Label text="E-Mail"></Label>
+                <Input id="idInEmail" type="Email" value="{/email}"></Input>
+                <Label text="Telefon"></Label>
+                <Input id="idInPhone" type="Tel" value="{/phone}"></Input>
+                <Label text="Entfernung"></Label>
+                <Input id="idInDestance" type="Number" value="{/distance}" description="KM"></Input>
+            </f:SimpleForm>
+        </semantic:content>
+        <semantic:positiveAction>
+            <semantic:PositiveAction text="Speichern" press="onPressPost" />
+        </semantic:positiveAction>
+    </semantic:DetailPage>
+</mvc:View>

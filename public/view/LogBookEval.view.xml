@@ -1,0 +1,57 @@
+<mvc:View controllerName="bApp.controller.LogBookEval" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:semantic="sap.m.semantic" xmlns:custom="bApp.controls" xmlns:f="sap.ui.layout.form">
+	<semantic:DetailPage title="Fahrtenbuch auswerten" showNavButton="true" navButtonPress="onNavBack">
+		<semantic:customHeaderContent></semantic:customHeaderContent>
+		<semantic:content>
+			<VBox fitContainer="true">
+				<OverflowToolbar class="sapFDynamicPageAlignContent">
+					<Label text="Zeitraum"></Label>
+					<DateRangeSelection change="onChangeDateRange" width="200px" dateValue="{selection>/datab}" secondDateValue="{selection>/datbi}"></DateRangeSelection>
+					<ToolbarSpacer />
+					<SearchField search=".onSearch" width="17.5rem" />
+					<OverflowToolbarButton icon="sap-icon://sort" text="Sort" type="Transparent" press=".onSort" />
+					<OverflowToolbarButton icon="sap-icon://download" text="Download" type="Transparent" press="onDataExport" />
+				</OverflowToolbar>
+				<Table fixedLayout="false" id="logTable" inset="false" items="{
+						path: 'logs>/'
+					}" class="sapFDynamicPageAlignContent" width="auto">
+					<columns>
+						<Column width="60px">
+							<Text text="Status" />
+						</Column>
+						<Column width="auto" minScreenWidth="Tablet">
+							<Text text="Datum" />
+						</Column>
+						<Column width="auto">
+							<Text text="Strecke" />
+						</Column>
+						<Column width="auto" demandPopin="true" hAlign="Begin">
+							<Text text="Ziel" />
+						</Column>
+						<Column width="auto" demandPopin="true" hAlign="Begin" minScreenWidth="Tablet">
+							<Text text="Ort" />
+						</Column>
+						<Column width="auto" demandPopin="true" hAlign="Begin" minScreenWidth="Tablet">
+							<Text text="Straße" />
+						</Column>
+						<Column minScreenWidth="Tablet">
+							<Text text="Bemerkung" />
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem type="Active" press="onListItemPress">
+							<cells>
+								<core:Icon src="{= ${logs>status} !== 0  ? 'sap-icon://alert' : 'sap-icon://appear-offline'}" color="{= ${logs>status} !== 0  ? 'Negative' : 'Positive'}"></core:Icon>
+								<Text text="{path:'logs>end_date', formatter: '.formatter.formatDate' }" class="sapUiSmallMarginBottom" />
+								<ObjectNumber number="{logs>km_traveled}" unit="KM" class="sapUiSmallMarginBottom" />
+								<Text text="{logs>buPaName}" class="sapUiSmallMarginBottom" />
+								<Text text="{logs>city}" class="sapUiSmallMarginBottom" />
+								<Text text="{logs>street}" class="sapUiSmallMarginBottom" />
+								<Text text="{logs>text}" class="sapUiSmallMarginBottom"></Text>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</VBox>
+		</semantic:content>
+	</semantic:DetailPage>
+</mvc:View>

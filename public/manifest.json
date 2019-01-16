@@ -1,7 +1,7 @@
 {
 	"_version": "1.4.0",
 	"sap.app": {
-		"id": "bApp",
+		"id": "pManager",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
 		"title": "{{appTitle}}",
@@ -87,23 +87,30 @@
 				"async": true
 			},
 			"routes": [{
-					"pattern": "",
-					"name": "menu",
-					"target": [
-						"menu","launchpad"
-					]
-				},{
-					"pattern": "LogBook",
-					"name": "logbook",
-					"target": ["logbook"]
-				}
-			],
+				"pattern": "",
+				"name": "menu",
+				"target": [
+					"menu", "launchpad"
+				]
+			}, {
+				"pattern": "CreateCustomer",
+				"name": "ccustomer",
+				"target": ["menu", "ccustomer"]
+			}, {
+				"pattern": "LogBook",
+				"name": "logbook",
+				"target": ["menu", "logbook"]
+			}, {
+				"pattern": "LogBookEval",
+				"name": "logeval",
+				"target": ["menu", "logeval"]
+			}],
 			"targets": {
-				"menu":{
+				"menu": {
 					"viewName": "AppMenu",
 					"viewLevel": 1,
-					"viewId": "menu",
-					"controlAggregation": "masterPages"
+					"controlAggregation": "masterPages",
+					"viewId": "menu"
 				},
 				"launchpad": {
 					"viewName": "Launchpad",
@@ -112,6 +119,14 @@
 				"logbook": {
 					"viewName": "LogBook",
 					"viewId": "logbook"
+				},
+				"logeval": {
+					"viewName": "LogBookEval",
+					"viewId": "logeval"
+				},
+				"ccustomer": {
+					"viewName": "CreateCustomer",
+					"viewId": "ccustomer"
 				},
 				"detailObjectNotFound": {
 					"viewName": "DetailObjectNotFound",

@@ -1,30 +1,12 @@
 {
     "Menu": [{
-            "title": "Business Partner",
+            "title": "Partner",
             "viewId": "idBP",
             "Panel": "MasterData",
             "TitlePos": "md1",
             "icon": "sap-icon://customer-and-supplier",
             "targetPage": "BP",
-            "description": "Business Partner pflegen",
-            "viewType": "XML"
-        },
-        {
-            "title": "Services",
-            "Panel": "MasterData",
-            "TitlePos": "md2",
-            "icon": "sap-icon://crm-service-manager",
-            "targetPage": "Services",
-            "description": "Services pflegen",
-            "viewType": "XML"
-        },
-        {
-            "title": "Conditions",
-            "Panel": "MasterData",
-            "TitlePos": "md3",
-            "icon": "sap-icon://monitor-payments",
-            "targetPage": "Conditions",
-            "description": "Konditionen pflegen",
+            "description": "Partner pflegen",
             "viewType": "XML"
         },{
             "title": "Fahrtenbuch",
@@ -34,15 +16,14 @@
             "targetPage": "Fahrtenbuch",
             "description": "Fahrt erfassen",
             "viewType": "XML"
-        },{
-            "title": "Time Recording",
+        }, {
+            "title": "Fahrtenbuch auswerten",
             "Panel": "TransactionalData",
-            "TitlePos": "td2",
-            "icon": "sap-icon://date-time",
-            "targetPage": "TimeRecording",
-            "description": "Zeit erfsssung",
+            "TitlePos": "td4",
+            "icon": "sap-icon://map-2",
+            "targetPage": "LogBookEval",
+            "description": "Auswerten, Bearbeiten, Exportieren",
             "viewType": "XML"
         }
-
     ]
 }

@@ -1,0 +1,31 @@
+<core:FragmentDefinition xmlns="sap.m" 
+	xmlns:core="sap.ui.core" 
+	xmlns:f="sap.ui.layout.form">
+
+	<Dialog type="Message" title="Beleg {/id}">
+		<content>
+			<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="5" emptySpanXL="5">
+				<Label text="Letzter KM-Stand"></Label>
+				<Text id="idLastKM" text="{= ${/km_end} - ${/km_traveled} }"></Text>
+				<Label text="Start / Ende Datum"></Label>
+				<DatePicker id="startDate" value="{path:'/start_date', formatter: '.formatter.formatDate' }" change="handleDateChange" class="sapUiSmallMarginBottom" />
+				<DatePicker id="endDate" value="{path:'/end_date', formatter: '.formatter.formatDate' }" change="handleDateChange" class="sapUiSmallMarginBottom" />
+				<Label text="Gefahren"></Label>
+				<Input type="Number" id="idKmTraveled" value="{/km_traveled}" description="KM"  submit="onKmInput"></Input>
+				<Label text="Endstand"></Label>
+				<Input type="Number" id="idKmEnd" value="{/km_end}" description="KM" submit="onKmInput"></Input>
+				<Label text="Ziel"></Label>
+				<Input id="idBPId" type="Number" value="{/bpid}" showValueHelp="true" valueHelpRequest="handleValueHelp" description="{/name}"></Input>
+				<Label text="Bemerkung"></Label>
+				<TextArea value="{/text}"></TextArea>
+			</f:SimpleForm>
+		</content>
+
+		<buttons>
+			<Button text="Speichern" type="Accept" press="onPressSaveDialog"></Button>
+			<Button text="Löschen" type="Reject" press="onPressDeleteDialog"></Button>
+			<Button text="Schließen" press="onPressCloseDialog"></Button>
+		</buttons>
+
+	</Dialog>
+</core:FragmentDefinition>

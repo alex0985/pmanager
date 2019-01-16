@@ -1,5 +1,5 @@
 <mvc:View controllerName="bApp.controller.AppMenu" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic">
-    <semantic:MasterPage id="idAppMenu" title="{i18n>AppMenu}">
+    <semantic:MasterPage id="idAppMenu" title="{i18n>AppMenu}" showNavButton="{device>/isPhone}" navButtonPress="handleNavButtonPress">
         <semantic:content>
             <List id="idMenuList" mode="SingleSelectMaster" selectionChange="onItemPress" items="{/Menu}">
                 <items>

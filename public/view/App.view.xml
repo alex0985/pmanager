@@ -5,7 +5,7 @@
 	xmlns="sap.m">
 	<SplitApp id="app"
 		 busy="{appView>/busy}"
+		 mode="PopoverMode"
 		 busyIndicatorDelay="{appView>/delay}"
-		 mode="HideMode"
 		 homeIcon="sap-icon://menu2"/>
 </mvc:View>

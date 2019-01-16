@@ -49,7 +49,23 @@ sap.ui.define([
                 case "Fahrtenbuch":
                     this.getRouter().navTo("logbook");
                     break;
+                case "Partner":
+                    this.getRouter().navTo("ccustomer");
+                    break;
+                case "Belege":
+                    this.getRouter().navTo("docs");
+                    break;
+                case "Belege auswerten":
+                    this.getRouter().navTo("doceval");
+                    break;
+                case "Fahrtenbuch auswerten":
+                    this.getRouter().navTo("logeval");
+                    break;
+                case "Zeiterfassung":
+                    this.getRouter().navTo("timerec");
+                    break;
                 default:
+                    Message.show("Not implemented!");
                     break;
             }
         },
