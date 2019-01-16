@@ -1,12 +1,13 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" 
-xmlns:custom="bApp.controls"
-xmlns:core="sap.ui.core" xmlns:semantic="sap.m.semantic" controllerName="bApp.controller.MaintainProduct" xmlns="sap.m">
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:custom="bApp.controls" xmlns:core="sap.ui.core" xmlns:semantic="sap.m.semantic" controllerName="bApp.controller.MaintainProduct" xmlns="sap.m">
 	<semantic:DetailPage title="Artikel pflegen" showNavButton="true" navButtonPress="onNavBack">
 		<semantic:content>
 			<core:Fragment fragmentName="bApp.fragments.MaintainProduct" type="XML" />
 		</semantic:content>
+		<semantic:customFooterContent>
+			<Button icon="sap-icon://camera" text="Scan" press="onClickScan" />
+		</semantic:customFooterContent>
 		<semantic:positiveAction>
-			<semantic:PositiveAction text="scan" press="onClickScan" />
+			<semantic:PositiveAction text="Speichern" press="onPressPost" />
 		</semantic:positiveAction>
 	</semantic:DetailPage>
 </mvc:View>

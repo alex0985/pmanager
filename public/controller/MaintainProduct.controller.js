@@ -31,7 +31,9 @@ sap.ui.define([
             }
             // open value help dialog
             this._scanDialog.open();
+        },
+        onPressCloseDialog: function(oEvent){
+            oEvent.getSource().getParent().close();
         }
-
     });
 });
