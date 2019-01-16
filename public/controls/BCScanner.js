@@ -41,17 +41,35 @@ sap.ui.define([
         },
         onAfterRendering: function () {
             var that = this;
+
+            that.initCameraSelection();
+            //that.checkCapabilities();
+
             Quagga.init({
                 inputStream: {
                     name: "Live",
                     type: "LiveStream",
                     target: document.querySelector("#" + this._sContainerId),
                     constraints: {
-                        width: 480,
-                        height: 320,
+                        width: {
+                            min: 640
+                        },
+                        height: {
+                            min: 480
+                        },
+                        aspectRatio: {
+                            min: 1,
+                            max: 100
+                        },
                         facingMode: "environment"
                     },
                 },
+                locator: {
+                    patchSize: "medium",
+                    halfSample: true
+                },
+                numOfWorkers: 2,
+                locate: true,
                 decoder: {
                     readers: [
                         "code_128_reader",
@@ -92,7 +110,7 @@ sap.ui.define([
 
             Quagga.onProcessed(function (result) {
                 var drawingCtx = Quagga.canvas.ctx.overlay,
-                drawingCanvas = Quagga.canvas.dom.overlay;
+                    drawingCanvas = Quagga.canvas.dom.overlay;
 
                 if (result) {
                     if (result.boxes) {
@@ -100,16 +118,34 @@ sap.ui.define([
                         result.boxes.filter(function (box) {
                             return box !== result.box;
                         }).forEach(function (box) {
-                            Quagga.ImageDebug.drawPath(box, { x: 0, y: 1 }, drawingCtx, { color: "green", lineWidth: 2 });
+                            Quagga.ImageDebug.drawPath(box, {
+                                x: 0,
+                                y: 1
+                            }, drawingCtx, {
+                                color: "green",
+                                lineWidth: 2
+                            });
                         });
                     }
 
                     if (result.box) {
-                        Quagga.ImageDebug.drawPath(result.box, { x: 0, y: 1 }, drawingCtx, { color: "#00F", lineWidth: 2 });
+                        Quagga.ImageDebug.drawPath(result.box, {
+                            x: 0,
+                            y: 1
+                        }, drawingCtx, {
+                            color: "#00F",
+                            lineWidth: 2
+                        });
                     }
 
                     if (result.codeResult && result.codeResult.code) {
-                        Quagga.ImageDebug.drawPath(result.line, { x: 'x', y: 'y' }, drawingCtx, { color: 'red', lineWidth: 3 });
+                        Quagga.ImageDebug.drawPath(result.line, {
+                            x: 'x',
+                            y: 'y'
+                        }, drawingCtx, {
+                            color: 'red',
+                            lineWidth: 3
+                        });
                     }
                 }
             });
@@ -119,8 +155,16 @@ sap.ui.define([
                 that._scannerIsRunning = false;
                 Quagga.stop();
             });
+        },
+        initCameraSelection: function () {
+            var streamLabel = Quagga.CameraAccess.getActiveStreamLabel();
 
-
+            return Quagga.CameraAccess.enumerateVideoDevices()
+                .then(function (devices) {
+                    function pruneText(text) {
+                        return text.length > 30 ? text.substr(0, 30) : text;
+                    }
+                });
         }
     });
 });
