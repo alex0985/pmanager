@@ -1,5 +1,5 @@
 <mvc:View controllerName="bApp.controller.LogBook" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:semantic="sap.m.semantic" xmlns:f="sap.ui.layout.form">
-    <semantic:DetailPage title="Log Book" showNavButton="true" navButtonPress="onNavBack">
+    <semantic:DetailPage title="Fahrtenbuch pflegen" showNavButton="true" navButtonPress="onNavBack">
         <semantic:customHeaderContent></semantic:customHeaderContent>
         <semantic:content>
             <f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="5" emptySpanXL="5">
@@ -18,7 +18,7 @@
                 <Label text="Akt. KM Stand"></Label>
                 <Input type="Number" id="idKmEnd" value="{/trip/km_end}" submit="onKmInput"></Input>
                 <Label text="Bemerkung"></Label>
-                <TextArea value="{/trip/last_trip/text}" rows="4" />
+                <TextArea value="{/trip/text}" rows="4" />
             </f:SimpleForm>
             <Panel expandable="true" expanded="false" headerText="Weitere Angaben">
                 <f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="5" emptySpanXL="5">

@@ -5,7 +5,8 @@ sap.ui.define([
     "sap/m/MessageToast",
     'sap/ui/core/util/Export',
     'sap/ui/core/util/ExportTypeCSV',
-], function (BaseController, JSONModel, formatter, Message, Export, ExportTypeCSV) {
+    'sap/ui/model/Sorter'
+], function (BaseController, JSONModel, formatter, Message, Export, ExportTypeCSV,Sorter) {
     "use strict";
 
     return BaseController.extend("bApp.controller.LogBookEval", {
@@ -19,6 +20,8 @@ sap.ui.define([
             //Set Default Selection Date (Current Year)
             var date = new Date();
             var year = date.getFullYear();
+
+            this._bDescendingSort = false;
 
             var oModelSelection = new JSONModel();
             oModelSelection.setData({
@@ -292,6 +295,13 @@ sap.ui.define([
             var data = this.oView.byId("logTable").getModel("logs").getData();
             var myTestXML = new myExcelXML(data);
             myTestXML.downLoad();
+        },
+        onSort: function(){
+			this._bDescendingSort = !this._bDescendingSort;
+			var oBinding = this.getView().byId("logTable").getBinding("items"),
+				oSorter = new Sorter("end_date", this._bDescendingSort);
+
+			oBinding.sort(oSorter);
         },
         onDataExport: sap.m.Table.prototype.exportData || function (oEvent) {
 

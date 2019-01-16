@@ -41,10 +41,10 @@ sap.ui.define([
             var today = new Date();
             var that = this;
             //Datum in der Zukunft nicht möglich
-            if (resp.end_date > today) {
+/*             if (resp.end_date > today) {
                 Message.show("Ende Datum ist in der Zukunft!");
                 return;
-            }
+            } */
             //Falls nicht berechnet...
             var km_traveled = parseInt(resp.km_traveled, 10);
             var last_trip = parseInt(resp.last_trip, 10);
@@ -132,6 +132,7 @@ sap.ui.define([
             //Default Time
             oData.trip.start_time = '00:00:00';
             oData.trip.end_time = '23:59:59';
+            oData.trip.text = '';
 
             //Get Last Trip
             jQuery.ajax({

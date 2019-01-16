@@ -1,4 +1,4 @@
-module.exports = function(app, passport){
+module.exports = function (app, passport) {
     var db = require('../config/b-db');
 
     //********************************************** */
@@ -139,7 +139,7 @@ module.exports = function(app, passport){
         return data;
     }
 
-        //********************************************** */
+    //********************************************** */
     // Create Customer App Functions
     //********************************************** */
     app.get('/api/bpc/getNext', function (req, res) {
@@ -147,8 +147,22 @@ module.exports = function(app, passport){
             var sql = 'SELECT bpid FROM `md_bupa` WHERE env = ? AND bpid < 99999 ORDER BY bpid DESC LIMIT 1 ';
 
             db.query(sql, [process.env.NODE_ENV], function (err, result) {
-                var number = parseInt(result[0].bpid, 10);
-                number++;
+                var number = 0;
+                if (result.length > 0) {
+                    number = parseInt(result[0].bpid, 10);
+                    number++;
+                } else {
+                    switch (process.env.NODE_ENV) {
+                        case "DEV":
+                            number = 80000;
+                            break;
+                        case "PRD":
+                            number = 10000;
+                            break;
+                        default:
+                            break;
+                    }
+                }
                 res.json(number);
             });
         }

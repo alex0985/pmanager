@@ -8,11 +8,12 @@
 					<DateRangeSelection change="onChangeDateRange" width="200px" dateValue="{selection>/datab}" secondDateValue="{selection>/datbi}"></DateRangeSelection>
 					<ToolbarSpacer />
 					<SearchField search=".onSearch" width="17.5rem" />
-					<OverflowToolbarButton icon="sap-icon://sort" text="Sort" type="Transparent" press=".onSort" />
+					<OverflowToolbarButton icon="sap-icon://sort" text="Sort" type="Transparent" press="onSort" />
 					<OverflowToolbarButton icon="sap-icon://download" text="Download" type="Transparent" press="onDataExport" />
 				</OverflowToolbar>
 				<Table fixedLayout="false" id="logTable" inset="false" items="{
-						path: 'logs>/'
+						path: 'logs>/',
+						sorter: {	path: 'end_date' }
 					}" class="sapFDynamicPageAlignContent" width="auto">
 					<columns>
 						<Column width="60px">

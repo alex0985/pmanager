@@ -270,7 +270,7 @@ function getBusinessPartner(value, oView, Message) {
                 oViewData.street = "";
                 oViewData.city = "";
                 oViewData.postcode = "";
-                oViewData.country = "";
+                oViewData.country = "DE";
                 oViewData.distance = "";
                 Message.show("Business Partner nicht vorhanden.");
             } else {
