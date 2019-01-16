@@ -4,7 +4,6 @@ xmlns:core="sap.ui.core" xmlns:semantic="sap.m.semantic" controllerName="bApp.co
 	<semantic:DetailPage title="Artikel pflegen" showNavButton="true" navButtonPress="onNavBack">
 		<semantic:content>
 			<core:Fragment fragmentName="bApp.fragments.MaintainProduct" type="XML" />
-			
 		</semantic:content>
 		<semantic:positiveAction>
 			<semantic:PositiveAction text="scan" press="onClickScan" />

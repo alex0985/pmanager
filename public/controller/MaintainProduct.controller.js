@@ -11,7 +11,9 @@ sap.ui.define([
         formatter: formatter,
 
         onInit: function () {
-
+            var oModel = new JSONModel();  
+            this.oView = this.getView();
+            this.oView.setModel(oModel);
         },
         onNavBack: function (oEvent) {
             this.getRouter().navTo("menu", {}, true);
