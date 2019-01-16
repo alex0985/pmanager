@@ -52,8 +52,8 @@ sap.ui.define([
                 case "Partner":
                     this.getRouter().navTo("ccustomer");
                     break;
-                case "Belege":
-                    this.getRouter().navTo("docs");
+                case "Artikel":
+                    this.getRouter().navTo("mainprod");
                     break;
                 case "Belege auswerten":
                     this.getRouter().navTo("doceval");

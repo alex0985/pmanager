@@ -1,0 +1,5 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:custom="bApp.controls" xmlns:core="sap.ui.core">
+	<Dialog title="Business Partner">
+		<custom:BCScanner></custom:BCScanner>
+	</Dialog>
+</core:FragmentDefinition>

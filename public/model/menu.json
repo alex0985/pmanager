@@ -16,6 +16,14 @@
             "targetPage": "Fahrtenbuch",
             "description": "Fahrt erfassen",
             "viewType": "XML"
+        },{
+            "title": "Artikel",
+            "Panel": "MasterData",
+            "TitlePos": "md2",
+            "icon": "sap-icon://map-3",
+            "targetPage": "Artikel",
+            "description": "Artikel pflegen",
+            "viewType": "XML"
         }, {
             "title": "Fahrtenbuch auswerten",
             "Panel": "TransactionalData",

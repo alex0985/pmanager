@@ -104,6 +104,10 @@
 				"pattern": "LogBookEval",
 				"name": "logeval",
 				"target": ["menu", "logeval"]
+			},{
+				"pattern": "MaintainProduct",
+				"name": "mainprod",
+				"target": ["menu", "mainprod"]
 			}],
 			"targets": {
 				"menu": {
@@ -123,6 +127,10 @@
 				"logeval": {
 					"viewName": "LogBookEval",
 					"viewId": "logeval"
+				},
+				"mainprod": {
+					"viewName": "MaintainProduct",
+					"viewId": "mainprod"
 				},
 				"ccustomer": {
 					"viewName": "CreateCustomer",

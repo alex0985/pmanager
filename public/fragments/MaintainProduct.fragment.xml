@@ -1,0 +1,14 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="5" emptySpanXL="5">
+		<Label text="Artrikel EAN"></Label>
+		<Input id="idEAN" value="{/eannr}" submit="onEANInput"></Input>
+		<Label text="Bezeichnung"></Label>
+		<Input value="{/name}"></Input>
+		<Label text="Bestand"></Label>
+		<Input type="Number" id="idKmTraveled" value="{/stock}" submit="onStockInput"></Input>
+		<Label text="EK Preis"></Label>
+		<Input type="Number" id="idKmEnd" value="{/ekprice}" description="EUR" submit="onPriceInput"></Input>
+		<Label text="Vermerk"></Label>
+		<TextArea value="{/text}" rows="4" />
+	</f:SimpleForm>
+</core:FragmentDefinition>

@@ -1,9 +1,12 @@
+jQuery.sap.registerModulePath('Quagga', 'libs/quagga');
+
 sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/Device",
 	"bApp/model/models",
-	"bApp/controller/ErrorHandler"
-], function (UIComponent, Device, models, ErrorHandler) {
+	"bApp/controller/ErrorHandler",
+	"Quagga"
+], function (UIComponent, Device, models, ErrorHandler, Quagga) {
 	"use strict";
 
 	return UIComponent.extend("bApp.Component", {
