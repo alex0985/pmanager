@@ -18,11 +18,43 @@ sap.ui.define([
         onNavBack: function (oEvent) {
             this.getRouter().navTo("menu", {}, true);
         },
-        initDocument: function (oModel) {
-
+        initDocument: function () {
+            var oModel = this.getView().getModel();
+            var viewData = oModel.getData();
+            viewData = {};
+            oModel.setData(viewData);
         },
         onEANInput: function(oEvent){
-            
+            var ean = oEvent.getSource().getValue();
+
+            if(!ean || ean == ""){
+                Message.show("EAN Nummer eingeben!");
+            }
+
+            var oModel = this.oView.getModel();
+            var viewData = oModel.getData();
+            viewData = {};
+
+            jQuery.ajax({
+                type: "GET",
+                contentType: "application/json",
+                url: "/api/products/getProduct",
+                dataType: "json",
+                data: {
+                    eannr: ean
+                },
+                async: false,
+                success: function (data, textStatus, jqXHR) {
+                    viewData = data[0];
+                    viewData.eannr = ean;
+                    oModel.setData(viewData);
+                    if(!viewData.id || viewData.id == ""){
+                        Message.show("Neuer Artikel");
+                    }
+
+                },
+                error: function (err) {}
+            });
         },
         onClickScan: function(oEvent){
             if (!this._scanDialog) {
@@ -32,7 +64,7 @@ sap.ui.define([
                 );
                 this.getView().addDependent(this._scanDialog);
             }
-/*             // Content width
+/*          // Content width
             var width = window.innerWidth + "px";
             var height = window.innerWidth + "px";
             this._scanDialog.setContentWidth(width);
@@ -71,10 +103,67 @@ sap.ui.define([
                     if(data.price){
                         viewData.amazonPrice = data.price;
                     }
+
+                    if(!viewData.amazonName || viewData.amazonName == ""){
+                        Message.show("Kein Treffer zur EAN bei Amazon.de");
+                    }
                     oModel.setData(viewData);
                 },
                 error: function (err) {}
             });
+        },
+        onPressSave: function(){
+            var viewData = this.oView.getModel().getData();
+            var that = this;
+            if(!viewData.eannr || viewData.eannr == ""){
+                Message.show("EAN Nummer eingeben!");
+                return;
+            }
+
+            var post = {
+                id: viewData.id,
+                eannr: viewData.eannr,
+                name: viewData.name,
+                amazonName: viewData.amazonName,
+                amazonPrice: viewData.amazonPrice,
+                stock: viewData.stock,
+                ekprice: viewData.ekprice,
+                text: viewData.text
+            };
+
+            // Create or Update?
+            if(!viewData.id || viewData.id == ""){ //Create new product
+
+                jQuery.ajax({
+                    type: "POST",
+                    data: JSON.stringify(post),
+                    contentType: "application/json",
+                    url: "/api/products/createProduct",
+                    dataType: "json",
+                    async: false,
+                    success: function (data, textStatus, jqXHR) {
+                        Message.show("Produkt " + data.insertId + " wurde erfolgreich angelegt");
+                        that.initDocument();
+                    },
+                    error: function (err) {}
+                });
+
+            }else{ //Update existing product
+                
+                jQuery.ajax({
+                    type: "POST",
+                    data: JSON.stringify(post),
+                    contentType: "application/json",
+                    url: "/api/products/updateProduct",
+                    dataType: "json",
+                    async: false,
+                    success: function (data, textStatus, jqXHR) {
+                        Message.show("Produkt " + post.id + " wurde erfolgreich bearbeitet");
+                        that.initDocument();
+                    },
+                    error: function (err) {}
+                });
+            }
         }
     });
 });

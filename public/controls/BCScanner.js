@@ -65,8 +65,7 @@ sap.ui.define([
                     },
                 },
                 locator: {
-                    patchSize: "medium",
-                    halfSample: true
+                    patchSize: "medium"
                 },
                 numOfWorkers: 2,
                 locate: true,
@@ -179,6 +178,11 @@ sap.ui.define([
                         var data = oView.getModel().getData();
                         data.eannr = result.codeResult.code;
                         oView.getModel().setData(data);
+
+                        //Fire EAN Submit
+                        oView.byId("idEAN").setValue(data.eannr);
+                        oView.byId("idEAN").fireSubmit();
+
                         //Close Dialog
                         that.getParent().close();
                         break;

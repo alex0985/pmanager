@@ -287,6 +287,67 @@ module.exports = function (app, passport) {
             });
         }
     });
+    //************************
+    //  Product App
+    //************************ 
+    app.get('/api/products/getProduct', function (req, res) {
+        var ean = "";
+        if(req.query.eannr){
+            ean = req.query.eannr;
+        }
+        var sql = "SELECT * FROM `md_products` WHERE eannr = ? AND env = ?" ;
+        if (req.isAuthenticated()) {
+            db.query(sql, [ean, process.env.NODE_ENV], function (err, result) {
+                if (err) throw err;
+                res.json(result);
+            });
+        }
+
+    });
+
+    app.post('/api/products/createProduct', function (req, res) {
+        var sql = "INSERT INTO `md_products` SET ?";
+        var post = {
+            env: process.env.NODE_ENV,
+            eannr: req.body.eannr,
+            name: req.body.name,
+            amazonName: req.body.amazonName,
+            amazonPrice: req.body.amazonPrice,
+            stock: req.body.stock,
+            ekprice: req.body.ekprice,
+            text: req.body.text
+        };
+        if (req.isAuthenticated()) {
+            db.query(sql, post, function (err, result) {
+                if (err) throw err;
+                console.log("Number of records inserted: " + result.affectedRows);
+                res.json(result);
+            });
+        }
+    });
+
+    app.post('/api/products/updateProduct', function (req, res) {
+        var sql = "UPDATE `md_products` SET ? WHERE id = ? ";
+        var post = {
+            env: process.env.NODE_ENV,
+            eannr: req.body.eannr,
+            name: req.body.name,
+            amazonName: req.body.amazonName,
+            amazonPrice: req.body.amazonPrice,
+            stock: req.body.stock,
+            ekprice: req.body.ekprice,
+            text: req.body.text
+        };
+        if (req.isAuthenticated()) {
+            db.query(sql, [post, req.body.id], function (err, result) {
+                if (err) throw err;
+                console.log("Number of records updated: " + result.affectedRows);
+                res.json(result);
+            });
+        }
+    });
+
+
 
     //************************
     //  Web Scraper

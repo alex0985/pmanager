@@ -5,7 +5,7 @@
 		</semantic:content>
 		<semantic:customFooterContent>
 			<Button icon="sap-icon://sys-find" text="Amazon" press="onPressAmazon" />
-			<Button type="Accept" text="Speichern" press="onPressPost"></Button>
+			<Button type="Accept" text="Speichern" press="onPressSave"></Button>
 		</semantic:customFooterContent>
 	</semantic:DetailPage>
 </mvc:View>
