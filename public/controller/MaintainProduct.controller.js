@@ -11,7 +11,7 @@ sap.ui.define([
         formatter: formatter,
 
         onInit: function () {
-            var oModel = new JSONModel();  
+            var oModel = new JSONModel();
             this.oView = this.getView();
             this.oView.setModel(oModel);
         },
@@ -24,10 +24,10 @@ sap.ui.define([
             viewData = {};
             oModel.setData(viewData);
         },
-        onEANInput: function(oEvent){
+        onEANInput: function (oEvent) {
             var ean = oEvent.getSource().getValue();
 
-            if(!ean || ean == ""){
+            if (!ean || ean == "") {
                 Message.show("EAN Nummer eingeben!");
             }
 
@@ -45,14 +45,14 @@ sap.ui.define([
                 },
                 async: false,
                 success: function (data, textStatus, jqXHR) {
-                    if(data[0]){
+                    if (data[0]) {
                         viewData = data[0];
-                    }else{
+                    } else {
                         viewData.eannr = ean;
                     }
-                   
+
                     oModel.setData(viewData);
-                    if(!viewData.id || viewData.id == ""){
+                    if (!viewData.id || viewData.id == "") {
                         Message.show("Neuer Artikel");
                     }
 
@@ -60,7 +60,7 @@ sap.ui.define([
                 error: function (err) {}
             });
         },
-        onClickScan: function(oEvent){
+        onClickScan: function (oEvent) {
             if (!this._scanDialog) {
                 this._scanDialog = sap.ui.xmlfragment(
                     "bApp.fragments.BarcodeScanner",
@@ -68,23 +68,23 @@ sap.ui.define([
                 );
                 this.getView().addDependent(this._scanDialog);
             }
-/*          // Content width
-            var width = window.innerWidth + "px";
-            var height = window.innerWidth + "px";
-            this._scanDialog.setContentWidth(width);
-            this._scanDialog.setContentHeight(height); */
+            /*          // Content width
+                        var width = window.innerWidth + "px";
+                        var height = window.innerWidth + "px";
+                        this._scanDialog.setContentWidth(width);
+                        this._scanDialog.setContentHeight(height); */
             // open value help dialog
             this._scanDialog.open();
         },
-        onPressCloseDialog: function(oEvent){
+        onPressCloseDialog: function (oEvent) {
             oEvent.getSource().getParent().close();
         },
-        onPressAmazon: function(oEvent){
+        onPressAmazon: function (oEvent) {
             var ean = this.getView().byId("idEAN").getValue();
-            
+
             var oModel = this.getView().getModel();
             var viewData = oModel.getData();
-            if(!ean || ean == ""){
+            if (!ean || ean == "") {
                 Message.show("EAN Nummer eingeben!");
                 return;
             }
@@ -101,14 +101,14 @@ sap.ui.define([
                 success: function (data, textStatus, jqXHR) {
                     viewData.amazonName = "";
                     viewData.amazonPrice = "";
-                    if(data.name){
+                    if (data.name) {
                         viewData.amazonName = data.name;
                     }
-                    if(data.price){
+                    if (data.price) {
                         viewData.amazonPrice = data.price;
                     }
 
-                    if(!viewData.amazonName || viewData.amazonName == ""){
+                    if (!viewData.amazonName || viewData.amazonName == "") {
                         Message.show("Kein Treffer zur EAN bei Amazon.de");
                     }
                     oModel.setData(viewData);
@@ -116,10 +116,24 @@ sap.ui.define([
                 error: function (err) {}
             });
         },
-        onPressSave: function(){
+        handleLinkPress: function () {
+            var viewData = this.oView.getModel().getData();
+            if (viewData.amazonName && viewData.amazonName != "") {
+
+                if (viewData.eannr) {
+                    ean = viewData.eannr;
+                }
+
+                if (ean && ean != "") {
+                    var requetLink = "https://www.amazon.de/s/ref=nb_sb_noss?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&url=search-alias%3Daps&field-keywords=" + ean;
+                    window.open(requetLink);
+                }
+            }
+        },
+        onPressSave: function () {
             var viewData = this.oView.getModel().getData();
             var that = this;
-            if(!viewData.eannr || viewData.eannr == ""){
+            if (!viewData.eannr || viewData.eannr == "") {
                 Message.show("EAN Nummer eingeben!");
                 return;
             }
@@ -136,7 +150,7 @@ sap.ui.define([
             };
 
             // Create or Update?
-            if(!viewData.id || viewData.id == ""){ //Create new product
+            if (!viewData.id || viewData.id == "") { //Create new product
 
                 jQuery.ajax({
                     type: "POST",
@@ -152,8 +166,8 @@ sap.ui.define([
                     error: function (err) {}
                 });
 
-            }else{ //Update existing product
-                
+            } else { //Update existing product
+
                 jQuery.ajax({
                     type: "POST",
                     data: JSON.stringify(post),
