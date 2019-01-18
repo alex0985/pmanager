@@ -2,10 +2,15 @@
 	<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="5" emptySpanXL="5">
 		<Label text="Artrikel EAN"></Label>
 		<Input id="idEAN" value="{/eannr}" submit="onEANInput"></Input>
+		<Button icon="sap-icon://camera" text="Scan" press="onClickScan" />
 		<Label text="Bezeichnung"></Label>
 		<Input value="{/name}"></Input>
+		<Label text="Bezeichnung Amazon"></Label>
+		<Text text="{/amazonName}"></Text>
+		<Label text="Preis Amazon"></Label>
+		<Text text="{/amazonPrice}"></Text>
 		<Label text="Bestand"></Label>
-		<Input type="Number" id="idKmTraveled" value="{/stock}" submit="onStockInput"></Input>
+		<StepInput id="idStockQty" min="0" value="{/stock}" change="onStockInput"></StepInput>
 		<Label text="EK Preis"></Label>
 		<Input type="Number" id="idKmEnd" value="{/ekprice}" description="EUR" submit="onPriceInput"></Input>
 		<Label text="Vermerk"></Label>

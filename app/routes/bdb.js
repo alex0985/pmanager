@@ -1,5 +1,7 @@
 module.exports = function (app, passport) {
     var db = require('../config/b-db');
+    var request = require('request');
+    var cheerio = require('cheerio');
 
     //********************************************** */
     //LogBook App Functions
@@ -284,5 +286,38 @@ module.exports = function (app, passport) {
                 res.json(result);
             });
         }
+    });
+
+    //************************
+    //  Web Scraper
+    //************************
+    app.get('/api/webscrap/amazon', function (req, res) {
+        var ean = "";
+        if(req.query.eannr){
+            ean = req.query.eannr;
+        }
+        
+        var requetLink = "https://www.amazon.de/s/ref=nb_sb_noss?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&url=search-alias%3Daps&field-keywords=" + ean;
+
+        request(requetLink,
+            function (err, resp, html) {
+                if(err)throw(err);
+                if (resp.statusCode == 200) {
+                    var $ = cheerio.load(html);
+                    var itemTitle = $('.s-access-title');
+                    var itemPrice = $('.s-price');
+
+                    var amazonProduct = {
+                        statusCode : resp.statusCode,
+                        name: itemTitle.text(),
+                        price : itemPrice.text()
+                    }
+
+                    res.send(amazonProduct);
+                }else{
+                    res.send({ statusCode : resp.statusCode });
+                }
+            });
+
     });
 };

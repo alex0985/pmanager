@@ -29,7 +29,7 @@ sap.ui.define([
         init: function () {
             this._sContainerId = this.getId() + "--container";
             this.setAggregation("_html", new sap.ui.core.HTML({
-                content: "<div id='" + this._sContainerId + "'></div>"
+                content: "<div id='" + this._sContainerId + "'> <div id='barcode-scanner'><video class='videoCapture' src=''></video><canvas class='drawingBuffer'></canvas></div> </div>"
             }));
         },
         renderer: function (oRm, oControl) {
@@ -150,18 +150,40 @@ sap.ui.define([
                 }
             });
 
+            var scans = [];
             Quagga.onDetected(function (result) {
                 console.log("Barcode detected and processed : [" + result.codeResult.code + "]", result);
-                that._scannerIsRunning = false;
-                Quagga.stop();
-                //close dialog
-                //getView setData
-                var oView = that.getParent().getParent();
-                var data = oView.getModel().getData();
-                data.eannr = result.codeResult.code;
-                oView.getModel().setData(data);
-                //Close Dialog
-                that.getParent().close();
+                var scanned = {};
+                var found = false;
+                for (var i = 0; i < scans.length; i++) {
+                    if (scans[i].code && scans[i].code == result.codeResult.code) {
+                        found = true;
+                        scans[i].counter++;
+                        break;
+                    }
+                }
+                if (!found) {
+                    scanned = {
+                        code: result.codeResult.code,
+                        counter: 1
+                    };
+                    scans.push(scanned);
+                }
+                // Erst nach 3 gleichen treffern
+                for (var i = 0; i < scans.length; i++) {
+                    if (scans[i].counter >= 3) {
+                        that._scannerIsRunning = false;
+                        Quagga.stop();
+                        //getView setData
+                        var oView = that.getParent().getParent();
+                        var data = oView.getModel().getData();
+                        data.eannr = result.codeResult.code;
+                        oView.getModel().setData(data);
+                        //Close Dialog
+                        that.getParent().close();
+                        break;
+                    }
+                }
             });
         },
         initCameraSelection: function () {

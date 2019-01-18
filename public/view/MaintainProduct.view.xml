@@ -4,10 +4,8 @@
 			<core:Fragment fragmentName="bApp.fragments.MaintainProduct" type="XML" />
 		</semantic:content>
 		<semantic:customFooterContent>
-			<Button icon="sap-icon://camera" text="Scan" press="onClickScan" />
+			<Button icon="sap-icon://sys-find" text="Amazon" press="onPressAmazon" />
+			<Button type="Accept" text="Speichern" press="onPressPost"></Button>
 		</semantic:customFooterContent>
-		<semantic:positiveAction>
-			<semantic:PositiveAction text="Speichern" press="onPressPost" />
-		</semantic:positiveAction>
 	</semantic:DetailPage>
 </mvc:View>

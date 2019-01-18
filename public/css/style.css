@@ -1,0 +1,13 @@
+.videoCapture{
+    width: 100%;
+    height: auto;
+}
+
+.drawingBuffer{
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 5px;
+    left: 5px;
+    z-index: 10;
+}

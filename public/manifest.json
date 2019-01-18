@@ -72,6 +72,11 @@
 				"preload": true
 			}
 		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
 		"routing": {
 			"config": {
 				"routerClass": "sap.m.routing.Router",
@@ -104,7 +109,7 @@
 				"pattern": "LogBookEval",
 				"name": "logeval",
 				"target": ["menu", "logeval"]
-			},{
+			}, {
 				"pattern": "MaintainProduct",
 				"name": "mainprod",
 				"target": ["menu", "mainprod"]
