@@ -21,6 +21,9 @@ sap.ui.define([
         initDocument: function (oModel) {
 
         },
+        onEANInput: function(oEvent){
+            
+        },
         onClickScan: function(oEvent){
             if (!this._scanDialog) {
                 this._scanDialog = sap.ui.xmlfragment(
