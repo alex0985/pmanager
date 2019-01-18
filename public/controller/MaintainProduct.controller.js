@@ -45,8 +45,12 @@ sap.ui.define([
                 },
                 async: false,
                 success: function (data, textStatus, jqXHR) {
-                    viewData = data[0];
-                    viewData.eannr = ean;
+                    if(data[0]){
+                        viewData = data[0];
+                    }else{
+                        viewData.eannr = ean;
+                    }
+                   
                     oModel.setData(viewData);
                     if(!viewData.id || viewData.id == ""){
                         Message.show("Neuer Artikel");
