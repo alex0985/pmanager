@@ -119,6 +119,7 @@ sap.ui.define([
         handleLinkPress: function () {
             var viewData = this.oView.getModel().getData();
             var ean = "";
+            
             if (viewData.amazonName && viewData.amazonName != "") {
 
                 if (viewData.eannr) {
