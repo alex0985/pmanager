@@ -6,7 +6,7 @@
 		<Label text="Bezeichnung"></Label>
 		<Input value="{/name}"></Input>
 		<Label text="Bezeichnung Amazon"></Label>
-		<Text text="{/amazonName}"></Text>
+		<Link text="{/amazonName}" press="handleLinkPress"/>
 		<Label text="Preis Amazon"></Label>
 		<Text text="{/amazonPrice}"></Text>
 		<Label text="Bestand"></Label>
