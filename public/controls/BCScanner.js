@@ -65,9 +65,10 @@ sap.ui.define([
                     },
                 },
                 locator: {
-                    patchSize: "medium"
+                    patchSize: "medium",
+                    halfSample: true
                 },
-                numOfWorkers: 2,
+                numOfWorkers: 1,
                 locate: true,
                 decoder: {
                     readers: [
@@ -170,7 +171,7 @@ sap.ui.define([
                 }
                 // Erst nach 3 gleichen treffern
                 for (var i = 0; i < scans.length; i++) {
-                    if (scans[i].counter >= 3) {
+                    if (scans[i].counter >= 5) {
                         that._scannerIsRunning = false;
                         Quagga.stop();
                         //getView setData
