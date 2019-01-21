@@ -4,7 +4,7 @@
             <Button text="Logout" press="onPressLogout"></Button>
         </semantic:customHeaderContent>
         <semantic:content>
-            <Panel id="idPanelTD" expandable="true" visible="false" expanded="true" width="auto" class="sapUiResponsiveMargin" headerText="Bewegungsdaten">
+            <Panel id="idPanelTD" expandable="true" visible="false" expanded="true" width="auto" class="sapUiResponsiveMargin" headerText="Artikel">
                 <FlexBox id="idBoxTransactionalData" justifyContent="Center" wrap="Wrap">
                     <items>
                         <GenericTile sizeBehavior="Small" id="td1" visible="false" header="dummy1" press="onPress" class="sapUiTinyMarginTop sapUiTinyMarginBegin" mode="ContentMode"></GenericTile>
@@ -20,7 +20,7 @@
                     </items>
                 </FlexBox>
             </Panel>
-            <Panel id="idPanelMD" expandable="true" visible="false" expanded="true" width="auto" class="sapUiResponsiveMargin" headerText="Stammdaten">
+            <Panel id="idPanelMD" expandable="true" visible="false" expanded="true" width="auto" class="sapUiResponsiveMargin" headerText="Fahrtenbuch">
                 <FlexBox id="idBoxMasterData" justifyContent="Center" wrap="Wrap">
                     <items>
                         <GenericTile sizeBehavior="Small" id="md1" visible="false" header="dummy1" press="onPress" class="sapUiTinyMarginTop sapUiTinyMarginBegin" mode="ContentMode"></GenericTile>

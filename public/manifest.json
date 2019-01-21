@@ -113,6 +113,10 @@
 				"pattern": "MaintainProduct",
 				"name": "mainprod",
 				"target": ["menu", "mainprod"]
+			}, {
+				"pattern": "ManageProduct",
+				"name": "manprod",
+				"target": ["menu", "manprod"]
 			}],
 			"targets": {
 				"menu": {
@@ -136,6 +140,10 @@
 				"mainprod": {
 					"viewName": "MaintainProduct",
 					"viewId": "mainprod"
+				},
+				"manprod": {
+					"viewName": "ManageProducts",
+					"viewId": "manprod"
 				},
 				"ccustomer": {
 					"viewName": "CreateCustomer",

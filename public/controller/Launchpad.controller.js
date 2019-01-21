@@ -61,8 +61,8 @@ sap.ui.define([
                 case "Fahrtenbuch auswerten":
                     this.getRouter().navTo("logeval");
                     break;
-                case "Zeiterfassung":
-                    this.getRouter().navTo("timerec");
+                case "Artikelliste":
+                    this.getRouter().navTo("manprod");
                     break;
                 default:
                     Message.show("Not implemented!");

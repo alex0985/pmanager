@@ -1,37 +1,44 @@
 {
     "Menu": [{
-            "title": "Partner",
-            "viewId": "idBP",
-            "Panel": "MasterData",
-            "TitlePos": "md1",
-            "icon": "sap-icon://customer-and-supplier",
-            "targetPage": "BP",
-            "description": "Partner pflegen",
-            "viewType": "XML"
-        },{
-            "title": "Fahrtenbuch",
-            "Panel": "TransactionalData",
-            "TitlePos": "td1",
-            "icon": "sap-icon://map-3",
-            "targetPage": "Fahrtenbuch",
-            "description": "Fahrt erfassen",
-            "viewType": "XML"
-        },{
-            "title": "Artikel",
-            "Panel": "MasterData",
-            "TitlePos": "md2",
-            "icon": "sap-icon://map-3",
-            "targetPage": "Artikel",
-            "description": "Artikel pflegen",
-            "viewType": "XML"
-        }, {
-            "title": "Fahrtenbuch auswerten",
-            "Panel": "TransactionalData",
-            "TitlePos": "td4",
-            "icon": "sap-icon://map-2",
-            "targetPage": "LogBookEval",
-            "description": "Auswerten, Bearbeiten, Exportieren",
-            "viewType": "XML"
-        }
-    ]
+        "title": "Artikel",
+        "Panel": "MasterData",
+        "TitlePos": "td1",
+        "icon": "sap-icon://product",
+        "targetPage": "Artikel",
+        "description": "Artikel, Bestand pflegen",
+        "viewType": "XML"
+    }, {
+        "title": "Artikelliste",
+        "Panel": "TransactionalData",
+        "TitlePos": "td2",
+        "icon": "sap-icon://list",
+        "targetPage": "ManageProducts",
+        "description": "Auswerten, Bearbeiten, Exportieren",
+        "viewType": "XML"
+    }, {
+        "title": "Fahrtenbuch",
+        "Panel": "TransactionalData",
+        "TitlePos": "md1",
+        "icon": "sap-icon://map-3",
+        "targetPage": "Fahrtenbuch",
+        "description": "Fahrt erfassen",
+        "viewType": "XML"
+    }, {
+        "title": "Fahrtenbuch auswerten",
+        "Panel": "TransactionalData",
+        "TitlePos": "md2",
+        "icon": "sap-icon://map-2",
+        "targetPage": "LogBookEval",
+        "description": "Auswerten, Bearbeiten, Exportieren",
+        "viewType": "XML"
+    }, {
+        "title": "Partner",
+        "viewId": "idBP",
+        "Panel": "MasterData",
+        "TitlePos": "md3",
+        "icon": "sap-icon://customer-and-supplier",
+        "targetPage": "BP",
+        "description": "Partner pflegen",
+        "viewType": "XML"
+    }]
 }
