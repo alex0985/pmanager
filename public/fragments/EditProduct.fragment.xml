@@ -2,7 +2,6 @@
 	<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="5" emptySpanXL="5">
 		<Label text="Artrikel EAN"></Label>
 		<Input id="idEAN" value="{/eannr}" submit="onEANInput"></Input>
-		<Button icon="sap-icon://camera" text="Scan" press="onClickScan" />
 		<Label text="Bezeichnung"></Label>
 		<Input value="{/name}"></Input>
 		<Label text="Bezeichnung Amazon"></Label>

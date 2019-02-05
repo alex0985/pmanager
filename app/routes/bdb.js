@@ -302,9 +302,27 @@ module.exports = function (app, passport) {
                 res.json(result);
             });
         }
-
     });
 
+    app.get('/api/products/getProducts', function (req, res) {
+        var sql = "SELECT * FROM `md_products` WHERE env = ?" ;
+        if (req.isAuthenticated()) {
+            db.query(sql, [process.env.NODE_ENV], function (err, result) {
+                if (err) throw err;
+                res.json(result);
+            });
+        }
+
+    });
+    app.post('/api/products/deleteProduct', function (req, res) {
+        if (req.isAuthenticated()) {
+            var sql = "DELETE FROM `md_products` WHERE env = ? AND id = ?";
+            db.query(sql, [process.env.NODE_ENV, req.body.id], function (err, result) {
+                console.log(result);
+                res.json(result);
+            });
+        }
+    });
     app.post('/api/products/createProduct', function (req, res) {
         var sql = "INSERT INTO `md_products` SET ?";
         var post = {
@@ -372,7 +390,7 @@ module.exports = function (app, passport) {
                         statusCode : resp.statusCode,
                         name: itemTitle.text(),
                         price : itemPrice.text()
-                    }
+                    };
 
                     res.send(amazonProduct);
                 }else{
