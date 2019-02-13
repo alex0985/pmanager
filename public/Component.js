@@ -1,12 +1,15 @@
 jQuery.sap.registerModulePath('Quagga', 'libs/quagga');
+jQuery.sap.registerModulePath('QRScanner', 'libs/jsQR');
 
 sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/Device",
 	"bApp/model/models",
 	"bApp/controller/ErrorHandler",
-	"Quagga"
-], function (UIComponent, Device, models, ErrorHandler, Quagga) {
+	"Quagga",
+	"QRScanner"
+
+], function (UIComponent, Device, models, ErrorHandler, Quagga, QRScanner ) {
 	"use strict";
 
 	return UIComponent.extend("bApp.Component", {

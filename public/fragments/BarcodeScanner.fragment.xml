@@ -1,5 +1,5 @@
-<core:FragmentDefinition xmlns="sap.m" xmlns:custom="bApp.controls" xmlns:core="sap.ui.core">
-	<Dialog contentHeight="auto" contentWidth="100%" type="Message" title="Barcode Scanner">
+<core:FragmentDefinition id="codeScannerDialogFragment" xmlns="sap.m" xmlns:custom="bApp.controls" xmlns:core="sap.ui.core">
+	<Dialog id="codeScannerDialog" contentHeight="auto" contentWidth="100%" type="Message" title="Barcode Scanner">
 		<custom:BCScanner></custom:BCScanner>
 		<buttons>
 			<Button text="Schließen" press="onPressCloseDialog"></Button>
