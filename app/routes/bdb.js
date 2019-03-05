@@ -384,7 +384,7 @@ module.exports = function (app, passport) {
                 if (resp.statusCode == 200) {
                     var $ = cheerio.load(html);
                     var itemTitle = $('.s-access-title');
-                    var itemPrice = $('.s-price');
+                    var itemPrice = $('.s-price').first();
 
                     var amazonProduct = {
                         statusCode : resp.statusCode,
