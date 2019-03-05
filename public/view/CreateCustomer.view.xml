@@ -2,7 +2,7 @@
     <semantic:DetailPage title="Partner pflegen" showNavButton="true" navButtonPress="onNavBack">
         <semantic:customHeaderContent></semantic:customHeaderContent>
         <semantic:content>
-            <f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="5" emptySpanXL="5">
+            <f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanM="5" emptySpanM="5" labelSpanL="5" emptySpanL="5" labelSpanXL="5" emptySpanXL="5">
                 <Label text="ID"></Label>
                 <Input id="idBPId" type="Number" value="{/bpid}" submit="onSubmit" showValueHelp="true" valueHelpRequest="handleValueHelp"></Input>
                 <Label text="Name"></Label>

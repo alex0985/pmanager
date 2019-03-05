@@ -2,7 +2,7 @@
     <semantic:DetailPage title="Fahrtenbuch pflegen" showNavButton="true" navButtonPress="onNavBack">
         <semantic:customHeaderContent></semantic:customHeaderContent>
         <semantic:content>
-            <f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="5" emptySpanXL="5">
+            <f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="5" emptySpanXL="5" labelSpanM="5" emptySpanM="5" labelSpanL="5" emptySpanL="5">
                 <Label text="Letzter KM-Stand"></Label>
                 <Input id="idLastKM" type="Number" value="{/trip/last_trip}" submit="onKmInput"></Input>
                 <Label text="Datum"></Label>
